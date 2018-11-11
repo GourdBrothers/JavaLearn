@@ -24,6 +24,8 @@ public class SwingLabelTest
 	
 	private void prepareGUI()
 	{
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		
 		mainFrame = new JFrame("Java Swing Label Test");
 		mainFrame.setSize(400, 400);
 		mainFrame.setLayout(new GridLayout(3,1));
@@ -34,6 +36,7 @@ public class SwingLabelTest
 				System.exit(0);
 			}
 		});
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		headerLabel = new JLabel("",JLabel.CENTER);
 		statusLabel = new JLabel("ÏÂ°à´ò¿¨",JLabel.CENTER);
@@ -58,8 +61,12 @@ public class SwingLabelTest
 		Icon icon=new ImageIcon("123.png");
 		
 		statusLabel.setIcon(icon);
+		statusLabel.setHorizontalTextPosition(JLabel.RIGHT);
+		statusLabel.setVerticalTextPosition(JLabel.EAST);
 		
-		statusLabel.setOpaque(true);
+		statusLabel.setPreferredSize(new Dimension(400,400));
+		
+		//statusLabel.setOpaque(true);
 		
 		JLabel jlabel = new JLabel("",JLabel.CENTER);
 		jlabel.setText("Welcome to Swing Label Test");
@@ -68,6 +75,8 @@ public class SwingLabelTest
 		jlabel.setForeground(Color.WHITE);
 		controlPanel.add(jlabel);
 		
+		
+		//mainFrame.pack();
 		mainFrame.setVisible(true);
 	}
 
