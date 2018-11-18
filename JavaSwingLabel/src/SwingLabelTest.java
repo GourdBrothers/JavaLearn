@@ -1,83 +1,36 @@
 
+// 标签的创建方法
+// 
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
 public class SwingLabelTest
 {
-	private JFrame mainFrame;
-	private JLabel headerLabel;
-	private JLabel statusLabel;
-	private JPanel controlPanel;
-	
-	public  SwingLabelTest()
+	static final int WIDTH = 300;
+	static final int HEIGHT = 200;
+
+	public static void main(String[] args)
 	{
-		prepareGUI();
-	}
-	
-	public static void main(String[] args) 
-	{
-	    SwingLabelTest swingLabel = new SwingLabelTest();
-		swingLabel.showLabel();
-	}
-	
-	private void prepareGUI()
-	{
-		JFrame.setDefaultLookAndFeelDecorated(true);
+		JFrame jf = new JFrame("Swing Label测试程序");
+		jf.setSize(WIDTH, HEIGHT);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//jf.setVisible(true);
 		
-		mainFrame = new JFrame("Java Swing Label Test");
-		mainFrame.setSize(400, 400);
-		mainFrame.setLayout(new GridLayout(3,1));
-		mainFrame.addWindowListener(new WindowAdapter(){
-			public void windowClosing(WindowEvent windowEvent) 
-			{
-				System.out.println("DickDickCong");
-				System.exit(0);
-			}
-		});
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JPanel contenrPane = new JPanel();
+		jf.setContentPane(contenrPane);
 		
-		headerLabel = new JLabel("",JLabel.CENTER);
-		statusLabel = new JLabel("下班打卡",JLabel.CENTER);
+		//JLabel label1 = new JLabel("这是一个标签测试程序");
+		//JLabel label2 = new JLabel("这是一个不可编辑的标签控件");
+		JLabel label1 = new JLabel();
+		JLabel label2 = new JLabel();
+		label1.setText("标签是用来标识某个控件的控件");
+		label2.setText("标签是用来标识说明性文件的控件");
 		
-		statusLabel.setSize(50,50);
+		contenrPane.add(label1);
+		contenrPane.add(label2);
 		
-		controlPanel = new JPanel();
+		jf.setVisible(true);
 		
-		controlPanel.setLayout(new FlowLayout());
-		
-		mainFrame.add(headerLabel);
-		mainFrame.add(controlPanel);
-		mainFrame.add(statusLabel);
-		
-		mainFrame.setVisible(true);
-		
-	}
-	
-	private void showLabel()
-	{
-		headerLabel.setText("Control in action: JLabel");
-		Icon icon=new ImageIcon("123.png");
-		
-		statusLabel.setIcon(icon);
-		statusLabel.setHorizontalTextPosition(JLabel.RIGHT);
-		statusLabel.setVerticalTextPosition(JLabel.EAST);
-		
-		statusLabel.setPreferredSize(new Dimension(400,400));
-		
-		//statusLabel.setOpaque(true);
-		
-		JLabel jlabel = new JLabel("",JLabel.CENTER);
-		jlabel.setText("Welcome to Swing Label Test");
-		jlabel.setOpaque(true);
-		jlabel.setBackground(Color.gray);
-		jlabel.setForeground(Color.WHITE);
-		controlPanel.add(jlabel);
-		
-		
-		//mainFrame.pack();
-		mainFrame.setVisible(true);
 	}
 
 }
